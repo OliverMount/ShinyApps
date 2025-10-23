@@ -1,6 +1,6 @@
 # My Interactive Shiny Apps Collection
 
-![R](https://img.shields.io/badge/R-4.3.1-blue) ![Shiny](https://img.shields.io/badge/Shiny-App-success) ![Last Commit](https://img.shields.io/github/last-commit/yourusername/yourrepo)
+![R](https://img.shields.io/badge/R-4.3.1-blue) ![Shiny](https://img.shields.io/badge/Shiny-App-success) ![Last Commit](https://img.shields.io/github/last-commit/OliverMount/ShinyApps)
 
 Welcome! This repository hosts **interactive Shiny apps** for demonstrations in mathematics, biology, and differential equations. More apps will be added regularly.
 

@@ -25,9 +25,6 @@ Welcome! This repository hosts **interactive Shiny apps** for demonstrations in 
 --- 
 
 
-
-
-
 ## How to Run Locally
 
 1. Install R and RStudio.  

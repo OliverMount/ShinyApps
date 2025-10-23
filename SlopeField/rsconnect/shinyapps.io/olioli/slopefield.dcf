@@ -5,6 +5,6 @@ account: olioli
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 15844770
-bundleId: 11073346
+bundleId: 11073354
 url: https://olioli.shinyapps.io/slopefield/
 version: 1

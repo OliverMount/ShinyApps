@@ -8,14 +8,25 @@ Welcome! This repository hosts **interactive Shiny apps** for demonstrations in 
 
 ## List of Apps (Expanding Regularly…)
 
-###  Visualizing Slope Fields
+###  1. Visualizing Slope Fields
 
 - **Description:** Explore and visualize the slope field for any first-order differential equation: dy/dx = f(x, y).  
 - **Link:** [Interactive Slope Field App](https://olioli.shinyapps.io/slopefield/)  
 - **Usage:** Enter any `f(x, y)` expression, adjust the X/Y range and grid density, and view the slope field.  
 
----
- 
+--- 
+
+###  2.  
+
+- **Description:**    
+- **Link:**  
+- **Usage:** 
+
+--- 
+
+
+
+
 
 ## How to Run Locally
 
@@ -31,4 +42,11 @@ install.packages(c("shiny", "ggplot2", "dplyr"))
 ```
 git clone https://github.com/OliverMount/ShinyApps.git
 
+```
+
+4. Run the app
+
+```
+library(shiny)
+runApp("path/to/app_folder")
 ```

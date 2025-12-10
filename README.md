@@ -18,11 +18,20 @@ Welcome! This repository hosts **interactive Shiny apps** for demonstrations in 
 
 ###  2.  
 
-- **Description:**    
-- **Link:**  
+- **Description:** Simulate and visualize sample paths of the Ornstein–Uhlenbeck (OU) stochastic process, a mean-reverting Gaussian process widely used in neuroscience, physics, and finance. The app displays trajectories, stationary distributions, and allows exploration of how drift, volatility, and mean-reversion rate shape the dynamics.   
+- **Link:**   [Ornstein-Uhlenbeck Process Simulator](https://olioli.shinyapps.io/OUprocess/)  
 - **Usage:** 
 
 --- 
+
+###  3.  
+
+- **Description:**    
+- **Link:**  [Green's Theorem Visualization](https://olioli.shinyapps.io/greens_theorem/)  
+- **Usage:** 
+
+--- 
+
 
 
 ## How to Run Locally

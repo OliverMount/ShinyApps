@@ -5,6 +5,6 @@ account: olioli
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 16094817
-bundleId: 11192939
+bundleId: 11199954
 url: https://olioli.shinyapps.io/OUprocess/
 version: 1

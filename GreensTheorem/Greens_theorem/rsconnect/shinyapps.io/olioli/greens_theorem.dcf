@@ -5,6 +5,6 @@ account: olioli
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 16282746
-bundleId: 11300535
+bundleId: 11300552
 url: https://olioli.shinyapps.io/greens_theorem/
 version: 1

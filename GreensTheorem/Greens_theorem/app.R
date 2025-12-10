@@ -148,8 +148,8 @@ ui <- fluidPage(
   "))),
   
   div(class = "main-header",
-      h1("Green's Theorem: Interactive Visualization -- by Oliver James" ),
-      p("Explore the relationship between line integrals and double integrals")
+      h1("Green's Theorem Visualization --   Oliver James" ),
+      h3("Explore the relationship between line integrals and double integrals")
   ),
   
   sidebarLayout(

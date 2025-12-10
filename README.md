@@ -20,15 +20,13 @@ Welcome! This repository hosts **interactive Shiny apps** for demonstrations in 
 
 - **Description:** Simulate and visualize sample paths of the Ornstein–Uhlenbeck (OU) stochastic process, a mean-reverting Gaussian process widely used in neuroscience, physics, and finance. The app displays trajectories, stationary distributions, and allows exploration of how drift, volatility, and mean-reversion rate shape the dynamics.   
 - **Link:**   [Ornstein-Uhlenbeck Process Simulator](https://olioli.shinyapps.io/OUprocess/)  
-- **Usage:** Choose parameters $\theta$ (mean-reversion rate), $\mu$ (long-term mean), 
-𝜎
-σ (volatility), and simulation length. Adjust the time step and number of sample paths, then click Simulate to generate trajectories. The plot updates interactively, allowing you to study how the OU process behaves under different parameter regimes.
+- **Usage:** Choose parameters $\theta$ (mean-reversion rate), $\mu$ (long-term mean), $\sigma$ (volatility), and simulation length. Adjust the time step and number of sample paths, then click Simulate to generate trajectories. The plot updates interactively, allowing you to study how the OU process behaves under different parameter regimes.
 
 --- 
 
 ###  3. Green's Theorem (relating circulation to curl in vector calculus)
 
-- **Description:**  Green's Theorem
+- **Description:**  Explore Green’s Theorem by visualizing a 2D vector field, selecting a region (circle, rectangle, or polygon), and comparing the **line integral (circulation)** around the boundary with the **double integral of the curl** over the region. This app helps build intuition for how circulation and curl relate.
 - **Link:**  [Green's Theorem Visualization](https://olioli.shinyapps.io/greens_theorem/)  
 - **Usage:** 
 

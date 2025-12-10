@@ -28,7 +28,7 @@ Welcome! This repository hosts **interactive Shiny apps** for demonstrations in 
 
 - **Description:**  Explore Green’s Theorem by visualizing a 2D vector field, selecting a region (circle, rectangle, or polygon), and comparing the **line integral (circulation)** around the boundary with the **double integral of the curl** over the region. This app helps build intuition for how circulation and curl relate.
 - **Link:**  [Green's Theorem Visualization](https://olioli.shinyapps.io/greens_theorem/)  
-- **Usage:**  Enter the vector field `F(x,y)=(P(x,y),Q(x,y))`. Choose a contour shape and its parameters (radius, width/height, etc.). The app plots the vector field, draws the region, and numerically computes both the boundary integral and the curl integral. View the results side-by-side and experiment with different vector fields to see when Green’s Theorem holds.
+- **Usage:**  Enter the vector field $\mathbf{F}(x,y)=(P(x,y),Q(x,y))$. Choose a contour shape and its parameters (radius, width/height, etc.). The app plots the vector field, draws the region, and numerically computes both the boundary integral and the curl integral. View the results side-by-side and experiment with different vector fields to see when Green’s Theorem holds.
 
 --- 
 

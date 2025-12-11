@@ -3,7 +3,29 @@ library(ggplot2)
 library(dplyr)
 
 # Helper: evaluate vector field with improved precision
-vector_field <- function(x, y, field, a = 1, b = 1) {
+vector_field <- function(x, y, field, a = 1, b = 1, swirl_centers = NULL) {
+  if (field == "four_swirls" && !is.null(swirl_centers)) {
+    # Initialize P and Q
+    P <- rep(0, length(x))
+    Q <- rep(0, length(x))
+    
+    # Add contribution from each swirl center
+    for (i in 1:4) {
+      cx <- swirl_centers[i, 1]
+      cy <- swirl_centers[i, 2]
+      dx <- x - cx
+      dy <- y - cy
+      r_sq <- dx^2 + dy^2 + 0.1  # Add small constant to avoid singularity
+      
+      # Rotational field around each center with decay
+      strength <- exp(-r_sq / 2)
+      P <- P - dy * strength
+      Q <- Q + dx * strength
+    }
+    
+    return(list(P = P, Q = Q))
+  }
+  
   switch(field,
          "rotational" = list(P = -y, Q = x),
          "radial" = list(P = x, Q = y),
@@ -14,7 +36,7 @@ vector_field <- function(x, y, field, a = 1, b = 1) {
 }
 
 # Compute circulation along parameterized contour with higher precision
-compute_line_integral <- function(xfun, yfun, n, field, a = 1, b = 1) {
+compute_line_integral <- function(xfun, yfun, n, field, a = 1, b = 1, swirl_centers = NULL) {
   t <- seq(0, 1, length.out = n + 1)
   x <- xfun(t)
   y <- yfun(t)
@@ -27,20 +49,20 @@ compute_line_integral <- function(xfun, yfun, n, field, a = 1, b = 1) {
   x_mid <- (head(x, -1) + tail(x, -1)) / 2
   y_mid <- (head(y, -1) + tail(y, -1)) / 2
   
-  fv <- vector_field(x_mid, y_mid, field, a, b)
+  fv <- vector_field(x_mid, y_mid, field, a, b, swirl_centers)
   
   sum(fv$P * dx + fv$Q * dy)
 }
 
 # Compute area integral of curl with adaptive grid
-compute_curl_area_integral <- function(xlim, ylim, nx, ny, region_fn, field, a = 1, b = 1) {
+compute_curl_area_integral <- function(xlim, ylim, nx, ny, region_fn, field, a = 1, b = 1, swirl_centers = NULL) {
   xs <- seq(xlim[1], xlim[2], length.out = nx)
   ys <- seq(ylim[1], ylim[2], length.out = ny)
   dx <- xs[2] - xs[1]
   dy <- ys[2] - ys[1]
   
   grid <- expand.grid(x = xs, y = ys)
-  fv <- vector_field(grid$x, grid$y, field, a, b)
+  fv <- vector_field(grid$x, grid$y, field, a, b, swirl_centers)
   
   Pmat <- matrix(fv$P, nrow = nx, ncol = ny)
   Qmat <- matrix(fv$Q, nrow = nx, ncol = ny)
@@ -156,7 +178,7 @@ ui <- fluidPage(
     sidebarPanel(width = 4,
                  div(class = "info-box",
                      h4("📐 Green's Theorem"),
-                     p("∮ P dx + Q dy = ∬ (∂Q/∂x - ∂P/∂y) dA"),
+                     p("∮ 𝑽 · d𝒍 =  ∬ (∇ × 𝑽) · 𝐤 dS "), 
                      p(style = "font-size: 12px; color: #666;", 
                        "The line integral around a closed curve equals the double integral of curl over the enclosed region.")
                  ),
@@ -167,7 +189,8 @@ ui <- fluidPage(
                                "Rotational: (-y, x)" = "rotational",
                                "Radial: (x, y)" = "radial",
                                "Source/Sink: (ax, by)" = "sourcesink",
-                               "Custom: (ax - by, bx + ay)" = "custom"
+                               "Custom: (ax - by, bx + ay)" = "custom",
+                               "Four Swirls: Multiple vortices" = "four_swirls"
                              )
                  ),
                  
@@ -175,6 +198,27 @@ ui <- fluidPage(
                    "input.field == 'sourcesink' || input.field == 'custom'",
                    sliderInput('a', 'Parameter a', min = -3, max = 3, value = 1, step = 0.1),
                    sliderInput('b', 'Parameter b', min = -3, max = 3, value = 1, step = 0.1)
+                 ),
+                 
+                 conditionalPanel(
+                   "input.field == 'four_swirls'",
+                   h5("Swirl Center Coordinates:"),
+                   fluidRow(
+                     column(6, numericInput('x1', 'Swirl 1 - x:', value = -1.5, step = 0.1)),
+                     column(6, numericInput('y1', 'Swirl 1 - y:', value = 1.5, step = 0.1))
+                   ),
+                   fluidRow(
+                     column(6, numericInput('x2', 'Swirl 2 - x:', value = 1.5, step = 0.1)),
+                     column(6, numericInput('y2', 'Swirl 2 - y:', value = 1.5, step = 0.1))
+                   ),
+                   fluidRow(
+                     column(6, numericInput('x3', 'Swirl 3 - x:', value = -1.5, step = 0.1)),
+                     column(6, numericInput('y3', 'Swirl 3 - y:', value = -1.5, step = 0.1))
+                   ),
+                   fluidRow(
+                     column(6, numericInput('x4', 'Swirl 4 - x:', value = 1.5, step = 0.1)),
+                     column(6, numericInput('y4', 'Swirl 4 - y:', value = -1.5, step = 0.1))
+                   )
                  ),
                  
                  hr(),
@@ -234,13 +278,24 @@ server <- function(input, output, session) {
     a_val <- if (input$field %in% c("sourcesink", "custom")) input$a else 1
     b_val <- if (input$field %in% c("sourcesink", "custom")) input$b else 1
     
+    # Get swirl centers if applicable
+    swirl_centers <- NULL
+    if (input$field == "four_swirls") {
+      swirl_centers <- matrix(c(
+        input$x1, input$y1,
+        input$x2, input$y2,
+        input$x3, input$y3,
+        input$x4, input$y4
+      ), ncol = 2, byrow = TRUE)
+    }
+    
     # Create contour
     contour <- make_contour(input$contour, params)
     region_fn <- region_fn_factory(input$contour, params)
     
     # Compute line integral
     line_int <- compute_line_integral(contour$xfun, contour$yfun, 
-                                      input$res, input$field, a_val, b_val)
+                                      input$res, input$field, a_val, b_val, swirl_centers)
     
     # Determine domain
     domain <- switch(input$contour,
@@ -257,7 +312,7 @@ server <- function(input, output, session) {
     nx <- input$grid * 3 + 1
     ny <- input$grid * 3 + 1
     area_int <- compute_curl_area_integral(xlim, ylim, nx, ny, 
-                                           region_fn, input$field, a_val, b_val)
+                                           region_fn, input$field, a_val, b_val, swirl_centers)
     
     list(
       line_int = line_int,
@@ -266,7 +321,8 @@ server <- function(input, output, session) {
       xlim = xlim,
       ylim = ylim,
       a = a_val,
-      b = b_val
+      b = b_val,
+      swirl_centers = swirl_centers
     )
   })
   
@@ -279,7 +335,7 @@ server <- function(input, output, session) {
     ys <- seq(res$ylim[1], res$ylim[2], length.out = ngr)
     grid <- expand.grid(x = xs, y = ys)
     
-    fv <- vector_field(grid$x, grid$y, input$field, res$a, res$b)
+    fv <- vector_field(grid$x, grid$y, input$field, res$a, res$b, res$swirl_centers)
     df <- data.frame(x = grid$x, y = grid$y, P = fv$P, Q = fv$Q)
     
     # Normalize for display
@@ -295,7 +351,7 @@ server <- function(input, output, session) {
     cy <- res$contour$yfun(t)
     pathdf <- data.frame(x = cx, y = cy)
     
-    ggplot() +
+    p <- ggplot() +
       geom_segment(data = df, 
                    aes(x = x, y = y, xend = x + u, yend = y + v),
                    arrow = arrow(length = unit(0.15, 'cm'), type = "closed"),
@@ -313,6 +369,20 @@ server <- function(input, output, session) {
         panel.grid.minor = element_blank(),
         panel.border = element_rect(fill = NA, color = "gray70")
       )
+    
+    # Add swirl centers if applicable
+    if (!is.null(res$swirl_centers)) {
+      swirl_df <- data.frame(
+        x = res$swirl_centers[, 1],
+        y = res$swirl_centers[, 2]
+      )
+      p <- p + geom_point(data = swirl_df, aes(x = x, y = y), 
+                          color = '#2c3e50', size = 4, shape = 16) +
+        geom_point(data = swirl_df, aes(x = x, y = y), 
+                   color = '#3498db', size = 2, shape = 16)
+    }
+    
+    p
   })
   
   output$results <- renderText({
@@ -321,8 +391,8 @@ server <- function(input, output, session) {
     diff <- res$line_int - res$area_int
     rel_error <- abs(diff) / (abs(res$area_int) + 1e-15) * 100
     
-    sprintf(
-      "Line Integral (∮ P dx + Q dy):          %18.12f\n\nArea Integral (∬ curl F dA):            %18.12f\n\n%s\n\nAbsolute Difference:                    %18.12e\nRelative Error:                         %18.8f%%\n\n%s",
+    sprintf( 
+      "Line Integral (∮ 𝑽 · d𝒍): %18.12f\n\nArea Integral (∬ (∇ × 𝑽) · 𝐤 dS): %18.12f\n\n%s\n\nAbsolute Difference:                    %18.12e\nRelative Error:                         %18.8f%%\n\n%s",
       res$line_int,
       res$area_int,
       paste(rep("─", 65), collapse = ""),

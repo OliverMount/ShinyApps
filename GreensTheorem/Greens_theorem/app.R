@@ -178,10 +178,10 @@ ui <- fluidPage(
     sidebarPanel(width = 4,
                  div(class = "info-box",
                      h4("📐 Green's Theorem"),
-                     p("∮ 𝑽 · d𝒍 =  ∬ (∇ × 𝑽) · 𝐤 dS "), 
+                     p("∮ 𝑽 · d𝒍 =  ∬ (∇ × 𝑽) · 𝐤 dS"), 
                      p(style = "font-size: 12px; color: #666;", 
                        "The line integral around a closed curve equals the double integral of curl over the enclosed region.")
-                 ),
+                     ),
                  
                  h4("1. Choose Vector Field F = (P, Q)"),
                  selectInput('field', NULL, 

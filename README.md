@@ -28,12 +28,35 @@ Welcome! This repository hosts **interactive Shiny apps** for demonstrations in 
 
 - **Description:**  Explore Green’s Theorem by visualizing a 2D vector field, selecting a region (circle, rectangle, or polygon), and comparing the **line integral (circulation)** around the boundary with the **double integral of the curl** over the region. This app helps build intuition for how circulation and curl relate.
 - **Link:**  [Green's Theorem Visualization](https://olioli.shinyapps.io/greens_theorem/)  
-- **Usage:**  Enter the vector field $\boldsymbol{F}(x,y)=(P(x,y),Q(x,y))$. Choose a contour shape and its parameters (radius, width/height, etc.). The app plots the vector field, draws the region, and numerically computes both the boundary integral and the curl integral. View the results side-by-side and experiment with different vector fields to see when Green’s Theorem holds.
-
+- **Usage:**  Enter the vector field $\boldsymbol{F}(x,y)=(P(x,y),Q(x,y))$. Choose a contour shape and its parameters (radius, width/height, etc.). The app plots the vector field, draws the region, and numerically computes both the boundary integral and the curl integral. View the results side-by-side and experiment with different vector fields to see when Green’s Theorem holds. 
 --- 
 
+### **3. Green’s Theorem**  
+
+#### **a. Circulation form (relating boundary circulation to curl)**
+
+- **Description:**  
+  Explore Green’s Theorem in its **circulation form** by visualizing a 2D vector field, selecting a region (circle, rectangle, or polygon), and comparing the **line integral (circulation)** around the boundary with the **double integral of the curl** over the region. This app helps build intuition for how local rotation inside a region gives rise to global circulation along its boundary.
+
+- **Link:**  
+  [Green's Theorem Visualization](https://olioli.shinyapps.io/greens_theorem/)
+
+- **Usage:**  
+  Enter the vector field $\boldsymbol{F}(x,y)=(P(x,y),Q(x,y))$. Choose a contour shape and its parameters (radius, width/height, etc.). The app plots the vector field, draws the region, and numerically computes both the boundary circulation integral and the area integral of the curl. View the results side-by-side and experiment with different vector fields to see when Green’s Theorem holds.
 
 
+####  **b. Flux form: relating boundary flux to divergence)**
+
+- **Description:**  
+  Explore Green’s Theorem in its **flux form** by visualizing a 2D vector field, selecting a region (circle, rectangle, or polygon), and comparing the **outward flux** across the boundary with the **double integral of the divergence** over the region. This app builds intuition for how sources and sinks within a region determine the net flow across its boundary.
+
+- **Link:**  
+  [Divergence (Flux) Visualization](https://olioli.shinyapps.io/GreenDivergenceTheorem/)
+
+- **Usage:**  
+  Enter the vector field $\boldsymbol{F}(x,y)=(P(x,y),Q(x,y))$. Choose a contour shape and its parameters (radius, width/height, etc.). The app plots the vector field, draws the region, and numerically computes both the boundary flux integral and the area integral of the divergence. View the results side-by-side and experiment with different vector fields to see when Green’s Theorem holds in flux form.
+
+ 
 ## How to Run Locally
 
 1. Install R and RStudio.  

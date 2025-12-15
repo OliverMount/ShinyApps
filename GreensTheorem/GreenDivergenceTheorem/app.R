@@ -373,8 +373,7 @@ server <- function(input, output, session) {
       y = y_norm,
       xend = x_norm + nx,
       yend = y_norm + ny
-    )
-
+    ) 
     p <- ggplot() +
       geom_segment(data = df,
                    aes(x = x, y = y, xend = x + u, yend = y + v),

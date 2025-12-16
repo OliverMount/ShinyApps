@@ -22,14 +22,7 @@ Welcome! This repository hosts **interactive Shiny apps** for demonstrations in 
 - **Link:**   [Ornstein-Uhlenbeck Process Simulator](https://olioli.shinyapps.io/OUprocess/)  
 - **Usage:** Choose parameters $\theta$ (mean-reversion rate), $\mu$ (long-term mean), $\sigma$ (volatility), and simulation length. Adjust the time step and number of sample paths, then click Simulate to generate trajectories. The plot updates interactively, allowing you to study how the OU process behaves under different parameter regimes.
 
---- 
-
-###  3. Green's Theorem (relating circulation to curl in vector calculus)
-
-- **Description:**  Explore Green’s Theorem by visualizing a 2D vector field, selecting a region (circle, rectangle, or polygon), and comparing the **line integral (circulation)** around the boundary with the **double integral of the curl** over the region. This app helps build intuition for how circulation and curl relate.
-- **Link:**  [Green's Theorem Visualization](https://olioli.shinyapps.io/GreensTheorem_curl_form/)  
-- **Usage:**  Enter the vector field $\boldsymbol{F}(x,y)=(P(x,y),Q(x,y))$. Choose a contour shape and its parameters (radius, width/height, etc.). The app plots the vector field, draws the region, and numerically computes both the boundary integral and the curl integral. View the results side-by-side and experiment with different vector fields to see when Green’s Theorem holds. 
---- 
+---  
 
 ### **3. Green’s Theorem**  
 

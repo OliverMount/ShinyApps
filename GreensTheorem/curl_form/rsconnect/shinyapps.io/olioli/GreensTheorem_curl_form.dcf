@@ -1,0 +1,12 @@
+name: GreensTheorem_curl_form
+title: GreensTheorem_curl_form
+username: olioli
+account: olioli
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 16319700
+bundleId: 11328575
+url: https://olioli.shinyapps.io/GreensTheorem_curl_form/
+version: 1
+asMultiple: FALSE
+asStatic: FALSE

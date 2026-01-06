@@ -1,0 +1,12 @@
+name: BizAnalytics
+title: BizAnalytics
+username: olioli
+account: olioli
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 16377717
+bundleId: 11405739
+url: https://olioli.shinyapps.io/BizAnalytics/
+version: 1
+asMultiple: FALSE
+asStatic: FALSE

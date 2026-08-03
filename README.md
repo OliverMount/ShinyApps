@@ -8,7 +8,7 @@ Welcome! This repository hosts **interactive Shiny apps** for demonstrations in 
 
 > [!NOTE] 
 > Since the announcement from [Posit Connect Cloud](https://connect.posit.cloud/) to handle all of the content types in one place, with one account, the shiny apps in the repository have been migrated to my public Posit [account](https://connect.posit.cloud/olive/).
-
+> Older Apps will be archived in cloud connect.
 
 ## List of Apps (Expanding Regularly…)
 
@@ -83,3 +83,4 @@ git clone https://github.com/OliverMount/ShinyApps.git
 library(shiny)
 runApp("path/to/app_folder")
 ```
+

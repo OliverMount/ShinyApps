@@ -53,8 +53,10 @@ Welcome! This repository hosts **interactive Shiny apps** for demonstrations in 
   Explore Green’s Theorem in its **flux form** by visualizing a 2D vector field, selecting a region (circle, rectangle, or polygon), and comparing the **outward flux** across the boundary with the **double integral of the divergence** over the region. This app builds intuition for how sources and sinks within a region determine the net flow across its boundary.
 
 - **Link:**  
-  [Divergence (Flux) Visualization](https://olioli.shinyapps.io/GreensTheorem_divergence_form/)
+  [Divergence (Flux) Visualization: Shiny App](https://olioli.shinyapps.io/GreensTheorem_divergence_form/)
 
+- **Migration:**  
+  [Divergence (Flux) Visualization: Posit Cloud Connect](https://olive-greens-divergence-form.share.connect.posit.cloud/)
 - **Usage:**  
   Enter the vector field $\boldsymbol{F}(x,y)=(P(x,y),Q(x,y))$. Choose a contour shape and its parameters (radius, width/height, etc.). The app plots the vector field, draws the region, and numerically computes both the boundary flux integral and the area integral of the divergence. View the results side-by-side and experiment with different vector fields to see when Green’s Theorem holds in flux form.
 

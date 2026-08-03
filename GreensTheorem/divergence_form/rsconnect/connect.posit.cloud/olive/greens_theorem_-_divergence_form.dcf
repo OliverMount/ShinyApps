@@ -1,0 +1,12 @@
+name: greens_theorem_-_divergence_form
+title: Green's Theorem - Divergence Form
+username: olive
+account: olive
+server: connect.posit.cloud
+hostUrl: https://api.connect.posit.cloud/v1
+appId: 019fc524-250b-2127-bdb0-50d90d9527ad
+bundleId:
+url: https://connect.posit.cloud/olive/content/019fc524-250b-2127-bdb0-50d90d9527ad
+version: 1
+asMultiple: FALSE
+asStatic: FALSE

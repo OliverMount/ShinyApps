@@ -1,0 +1,12 @@
+name: ornstein-uhlenbeck_process_simulator
+title: Ornstein-Uhlenbeck Process Simulator
+username: olive
+account: olive
+server: connect.posit.cloud
+hostUrl: https://api.connect.posit.cloud/v1
+appId: 019fc513-90a8-5b6d-9d78-3c3bd5405c84
+bundleId:
+url: https://connect.posit.cloud/olive/content/019fc513-90a8-5b6d-9d78-3c3bd5405c84
+version: 1
+asMultiple: FALSE
+asStatic: FALSE

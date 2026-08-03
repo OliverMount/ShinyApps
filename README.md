@@ -24,7 +24,8 @@ Welcome! This repository hosts **interactive Shiny apps** for demonstrations in 
 ###  2. Ornstein–Uhlenbeck (OU) stochastic process
 
 - **Description:** Simulate and visualize sample paths of the Ornstein–Uhlenbeck (OU) stochastic process, a mean-reverting Gaussian process widely used in neuroscience, physics, and finance. The app displays trajectories, stationary distributions, and allows exploration of how drift, volatility, and mean-reversion rate shape the dynamics.   
-- **Link:**   [Ornstein-Uhlenbeck Process Simulator](https://olioli.shinyapps.io/OUprocess/)  
+- **Link:**   [Ornstein-Uhlenbeck Process Simulator: ShinyApp](https://olioli.shinyapps.io/OUprocess/)  
+- **Migration:**   [Ornstein-Uhlenbeck Process Simulator: Posit Cloud Connect](https://olive-ou.share.connect.posit.cloud/)  
 - **Usage:** Choose parameters $\theta$ (mean-reversion rate), $\mu$ (long-term mean), $\sigma$ (volatility), and simulation length. Adjust the time step and number of sample paths, then click Simulate to generate trajectories. The plot updates interactively, allowing you to study how the OU process behaves under different parameter regimes.
 
 ---  

@@ -6,12 +6,17 @@ Welcome! This repository hosts **interactive Shiny apps** for demonstrations in 
 
 ---
 
+> [!NOTE] 
+> Since the announcement from [Posit Connect Cloud](https://connect.posit.cloud/) to handle all of the content types in one place, with one account, the shiny apps in the repository have been migrated to my public Posit [account](https://connect.posit.cloud/olive/).
+
+
 ## List of Apps (Expanding Regularly…)
 
 ###  1. Visualizing Slope Fields
 
 - **Description:** Explore and visualize the slope field for any first-order differential equation: dy/dx = f(x, y).  
-- **Link:** [Interactive Slope Field App](https://olioli.shinyapps.io/slopefield/)  
+- **Link:** [Interactive Slope Field App: ShinyApp](https://olioli.shinyapps.io/slopefield/)
+- **Migration** [Interactive Slope Field App: Posit Cloud Connect](https://olive-slope-field.share.connect.posit.cloud/)
 - **Usage:** Enter any `f(x, y)` expression, adjust the X/Y range and grid density, and view the slope field.  
 
 --- 

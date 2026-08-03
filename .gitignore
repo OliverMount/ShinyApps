@@ -3,3 +3,5 @@
 .RData
 .Ruserdata
 rsconnect/
+GreensTheorem/curl_form/rsconnect/*
+OUprocess/rsconnect/*

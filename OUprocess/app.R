@@ -50,7 +50,7 @@ ui <- fluidPage(
                   min = 0.001, max = 0.1, value = 0.01, step = 0.001),
       
       sliderInput("n_traj",
-                  "Number of Trajectories:",
+                  "Number of Trajectorie(s):",
                   min = 1, max = 20, value = 5, step = 1),
       
       hr(),
